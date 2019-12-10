@@ -7,6 +7,6 @@ for i in range(1, 101):
     elif (i % 5) == 0:
         print("Buzz", end="")
     else:
-        print(i, end="")
+        print("{}".format(i), end="")
     print(" ", end="")
 print()

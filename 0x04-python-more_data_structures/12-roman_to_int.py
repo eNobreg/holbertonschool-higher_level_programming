@@ -8,5 +8,4 @@ def roman_to_int(roman_string):
         for i in range(len(roman_string)):
             num += rom_dict[roman_string[i]]
         return num
-    else:
-        return 0 
+    return 0 

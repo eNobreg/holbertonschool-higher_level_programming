@@ -6,7 +6,7 @@ def roman_to_int(roman_string):
     if type(roman_string) is str:
         for i in range(len(roman_string)):
             if i > 0 and rom[roman_string[i]] > rom[roman_string[i - 1]]:
-                num += rom[roman_string[i]] - 2 * 1
+                num += rom[roman_string[i]] - 2 * rom[roman_string[i - 1]]
             else:
                 num += rom[roman_string[i]]
         return num

@@ -6,6 +6,9 @@ def roman_to_int(roman_string):
 
     if type(roman_string) is str:
         for i in range(len(roman_string)):
-            num += rom_dict[roman_string[i]]
+            if i > 0 and rom_dict[roman_string[i]] > rom_dict[roman_string[i - 1]]:
+                num += rom_dict[roman_string[i]] - 2 * rom_dict[roman_string[i - 1]]
+            else:
+                num += rom_dict[roman_string[i]]
         return num
     return 0 

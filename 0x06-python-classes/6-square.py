@@ -11,7 +11,7 @@ class Square:
 
     def area(self):
         """ Area of square """
-        return(self.__size * self.__size)
+        return(self.size * self.size)
 
     @property
     def size(self):
@@ -46,9 +46,9 @@ class Square:
         for y in range(self.position[1]):
             print()
         for i in range(0, self.size):
-            for e in range(self.__position[0]):
+            for e in range(self.position[0]):
                 print(" ", end="")
-            for j in range(self.__size):
+            for j in range(self.size):
                 print("#", end="")
             print()
         if (self.__size is 0):

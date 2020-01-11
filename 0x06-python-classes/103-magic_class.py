@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-""" This doc """
-
-
 import math
+
+
+
 class MagicClass:
     """ This class """
 

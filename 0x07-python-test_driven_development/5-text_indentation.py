@@ -22,4 +22,4 @@ def text_indentation(text):
             continue;
         new_str += text[i]
         i += 1
-    print(new_str, end='')
+    print("{}".format(new_str), end='')

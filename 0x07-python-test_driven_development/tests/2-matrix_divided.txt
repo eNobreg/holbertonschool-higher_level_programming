@@ -1,18 +1,55 @@
+==================================================================
+==================    Dividing a Matrix    =======================
+==================================================================
+
+
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 >>> matrix = [[2, 4], [8, 10]]
 >>> print(matrix_divided(matrix, 2))
 [[1.0, 2.0], [4.0, 5.0]]
+
 >>> matrix = [[], []]
 >>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
 >>> matrix = [[-2, -3], [-2, -4]]
 >>> matrix_divided(matrix, 2)
 [[-1.0, -1.5], [-1.0, -2.0]]
+
 >>> matrix_divided([[80], [20]], 2)
 [[40.0], [10.0]]
+
 >>> matrix_divided([3, [3]], 5)
 Traceback (most recent call last):
 ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0], [2.33, 2.67, 3.0]]
+
+>>> matrix = [[1]]
+>>> matrix_divided(matrix, 2)
+[[0.5]]
+
+>>> matrix = [[4], [4]]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+>>> matrix = [[2, 3], [2, 'a']]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [[100, 200], [1000, 24000]]
+>>> matrix_divided(matrix, 10)
+[[10.0, 20.0], [100.0, 2400.0]]
+
+>>> matrix = [[3.5, 2.7], [3.8, 240.3]]
+>>> matrix_divided(matrix, 3)
+[[1.17, 0.9], [1.27, 80.1]]

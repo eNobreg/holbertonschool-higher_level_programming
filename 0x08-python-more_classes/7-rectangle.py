@@ -8,20 +8,24 @@ class Rectangle:
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
-        self.width = width
+        """ A docstring """
         self.height = height
+        self.width = width
         Rectangle.number_of_instances += 1
 
     def __del__(self):
+        """ A docstring """
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     @property
     def width(self):
+        """ A docstring """
         return(self.__width)
 
     @width.setter
     def width(self, value):
+        """ A docstring """
         if isinstance(value, int) is False:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -30,10 +34,12 @@ class Rectangle:
 
     @property
     def height(self):
+        """ A docstring """
         return(self.__height)
 
     @height.setter
     def height(self, value):
+        """ A docstring """
         if isinstance(value, int) is False:
             raise TypeError("height must be an integer")
         if value < 0:

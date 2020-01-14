@@ -5,15 +5,17 @@
 class Rectangle:
     """ A class for doing things with a rectangle"""
     def __init__(self, width=0, height=0):
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
+        """ A docstring """
         return(self.__width)
 
     @width.setter
     def width(self, value):
+        """ A docstring """
         if isinstance(value, int) is False:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -22,10 +24,12 @@ class Rectangle:
 
     @property
     def height(self):
+        """ A docstring """
         return(self.__height)
 
     @height.setter
     def height(self, value):
+        """ A docstring """
         if isinstance(value, int) is False:
             raise TypeError("height must be an integer")
         if value < 0:
@@ -53,4 +57,3 @@ class Rectangle:
             new_str += "#" * self.width
             new_str += '\n'
         return (new_str[:-1])
-

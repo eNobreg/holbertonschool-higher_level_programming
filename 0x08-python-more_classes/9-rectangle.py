@@ -8,20 +8,24 @@ class Rectangle:
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
-        self.width = width
+        """ A docstring """
         self.height = height
+        self.width = width
         Rectangle.number_of_instances += 1
 
     def __del__(self):
+        """ A docstring """
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     @property
     def width(self):
+        """ A docstring """
         return(self.__width)
 
     @width.setter
     def width(self, value):
+        """ A docstring """
         if isinstance(value, int) is False:
             raise TypeError("width must be an integer")
         if value < 0:
@@ -30,10 +34,12 @@ class Rectangle:
 
     @property
     def height(self):
+        """ A docstring """
         return(self.__height)
 
     @height.setter
     def height(self, value):
+        """ A docstring """
         if isinstance(value, int) is False:
             raise TypeError("height must be an integer")
         if value < 0:
@@ -64,6 +70,7 @@ class Rectangle:
         """ Returns a representation """
         return ("Rectangle({}, {})".format(self.width, self.height))
 
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """ Compare """
 
@@ -72,13 +79,12 @@ class Rectangle:
         if isinstance(rect_2, Rectangle) is False:
             raise TypeError("rect_2 must be an instance of Rectangle")
 
-        if (rect_1.area() > rect_2.area()):
-            return rect_1
-        elif (rect_1.area() == rect_2.area()):
+        if (rect_1.area() >= rect_2.area()):
             return rect_1
         else:
             return rect_2
 
+    @classmethod
     def square(cls, size=0):
         """ This square """
         square_1 = Rectangle(cls, cls)

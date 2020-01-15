@@ -87,5 +87,5 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """ This square """
-        square_1 = Rectangle(cls, cls)
+        square_1 = cls(size, size)
         return square_1

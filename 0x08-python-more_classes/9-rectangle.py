@@ -9,8 +9,8 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """ A docstring """
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     def __del__(self):
@@ -29,7 +29,7 @@ class Rectangle:
         if isinstance(value, int) is False:
             raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("value must be >= 0")
+            raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
@@ -43,7 +43,7 @@ class Rectangle:
         if isinstance(value, int) is False:
             raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError("value must be >= 0")
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):

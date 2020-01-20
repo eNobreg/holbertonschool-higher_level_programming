@@ -1,0 +1,26 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator(1, 23)
+>>> bg.integer_validator("string", 4.0)
+Traceback (most recent call last):
+...
+TypeError: string must be an integer
+>>> bg.integer_validator("Thing", -4.0)
+Traceback (most recent call last):	
+...
+TypeError: Thing must be an integer
+>>> bg.integer_validator("Negative", -89)
+Traceback (most recent call last):
+...
+ValueError: Negative must be greater than 0
+>>> bg.integer_validator(1, 90000)
+>>> bg.integer_validator("Letter", "a")
+Traceback (most recent call last):	
+...
+TypeError: Letter must be an integer
+>>> bg.integer_validator("Letter", None)
+Traceback (most recent call last):	
+...
+TypeError: Letter must be an integer
+

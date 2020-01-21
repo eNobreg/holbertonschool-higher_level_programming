@@ -12,4 +12,3 @@ class MyInt(int):
     def __eq__(self, value):
         """ Self """
         return int(self) != int(value)
-

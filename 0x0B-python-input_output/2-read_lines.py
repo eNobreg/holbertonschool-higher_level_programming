@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module for reading lines """
 
+
 def read_lines(filename="", nb_lines=0):
     """ With """
     count = 0
@@ -10,4 +11,3 @@ def read_lines(filename="", nb_lines=0):
             count += 1
             if (count == nb_lines):
                 break
-        f.close()

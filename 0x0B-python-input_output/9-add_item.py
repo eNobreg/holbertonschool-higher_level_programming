@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+from os.path import exists
 from sys import argv
 if __name__ == "__main__":
     load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
@@ -8,12 +9,7 @@ if __name__ == "__main__":
 filename = "add_item.json"
 count = 0
 
-with open(filename, "r", encoding='utf8') as f:
-    for line in f:
-        count += 1
-    f.close()
-
-if (count > 0):
+if (exists(filename)):
     old_list = load_from_json_file(filename)
 else:
     old_list = []

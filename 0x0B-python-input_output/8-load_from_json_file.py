@@ -3,6 +3,8 @@
 
 
 import json
+
+
 def load_from_json_file(filename):
     """ Open """
     with open(filename, "r", encoding='utf8') as f:

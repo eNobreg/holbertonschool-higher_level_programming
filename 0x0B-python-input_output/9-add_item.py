@@ -10,7 +10,7 @@ with open(filename, "r", encoding='utf8') as f:
     for line in f:
         count += 1
     f.close()
-        
+
 if (count > 0):
     old_list = load_from_json_file(filename)
 else:

@@ -3,6 +3,8 @@
 
 
 import json
+
+
 def from_json_string(my_str):
     """ Convert json to string """
     if my_str is None or my_str == "":

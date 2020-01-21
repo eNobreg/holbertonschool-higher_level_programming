@@ -13,7 +13,7 @@ class Student():
 
     def to_json(self, attrs=None):
         """ json repr """
-        if attrs and all(isinstance(x, str) for x in attrs):
+        if type(attrs) is list and all([isinstance(x, str) for x in attrs]):
             return {k: v for k, v in self.__dict__.items() if k in attrs}
         else:
             return self.__dict__

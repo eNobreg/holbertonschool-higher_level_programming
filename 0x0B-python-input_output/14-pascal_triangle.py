@@ -7,6 +7,8 @@ def pascal_triangle(n):
 
     new_list = []
     matrix = []
+    if n == None:
+        return []
     if n <= 0:
         return []
     for j in range(1, n + 1):

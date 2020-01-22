@@ -5,15 +5,12 @@
 def pascal_triangle(n):
     """ Making a matrix """
 
-    new_list = []
     matrix = []
-    if n == None:
-        return []
     for j in range(1, n + 1):
+        new_list = []
         num = 1
         for i in range(1, j + 1):
             new_list.append(num)
             num = int(num * (j - i) / i)
         matrix.append(new_list)
-        new_list = []
     return matrix

@@ -10,8 +10,8 @@ class Square(Rectangle):
     """ Square """
     def __init__(self, size, x=0, y=0, id=None):
         """ This and That """
-        super().__init__(size, size, x, y, id)
         self.size = size
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         return ("[Square] ({}) {}/{} - {}".format(self.id,
@@ -26,9 +26,9 @@ class Square(Rectangle):
     def size(self, value):
         """ Sizes """
         if type(value) is not int:
-            raise TypeError("width must tbe an integer")
+            raise TypeError("width must be an integer")
         if value <= 0:
-            raise TypeError("width must be > 0")
+            raise ValueError("width must be > 0")
         self.__size = value
 
     def update(self, *args, **kwargs):

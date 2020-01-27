@@ -25,7 +25,7 @@ class Base:
             return '"[]"'
         """
         ld = list_dictionaries
-        return (json.dumps("[]") if ld is None or len(ld) == 0 else json.dumps(ld))
+        return ("[]" if ld is None or len(ld) == 0 else json.dumps(ld))
 
     @classmethod
     def save_to_file(cls, list_objs):

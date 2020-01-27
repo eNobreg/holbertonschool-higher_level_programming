@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module for Base class of Almost a Circle """
 
+import turtle
 from os.path import exists
 import json
 class Base:
@@ -17,11 +18,12 @@ class Base:
     
     @staticmethod
     def to_json_string(list_dictionaries):
-        """ Convert """
+        """ Convert
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            return '"[]"'
-        new_json = json.dumps(list_dictionaries)
-        return new_json
+            return '"[]"' 
+        """
+        ld = list_dictionaries
+        return (json.dumps("[]") if ld is None or not ld else json.dumps(ld))
     
     @classmethod
     def save_to_file(cls, list_objs): 
@@ -36,15 +38,20 @@ class Base:
     
     @staticmethod
     def from_json_string(json_string):
-        """ This """
+        """ This
         if json_string is None:
             return []
-        return json.loads(json_string)
+        """
+        js = json_string
+        return ([] if js is None or not js else json.loads(js))
 
     @classmethod
     def create(cls, **dictionary):
         """ Create a new instance """
-        new = cls(5, 5)
+        if cls.__name__ == "Rectangle":
+            new = cls(5, 5)
+        elif cls.__name__ == "Square":
+            new = cls(5)
         new.update(**dictionary)
         return(new)
 
@@ -56,7 +63,13 @@ class Base:
             return []
         with open(cls.__name__ + ".json") as f:
             new = cls.from_json_string(f.read())
-            for entry in new:
-                x = cls.create(**entry)
-                listl.append(x)
-        return listl
+        return [cls.create(**entry) for entry in new]
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Draw a turtle """
+        wn = turtle.Screen()
+        alex = turtle.Turtle()
+        alex.forward(50)
+        alex.left(90)
+        turtle.exitonclick()

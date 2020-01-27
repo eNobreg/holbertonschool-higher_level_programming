@@ -11,6 +11,7 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """ This and That """
         super().__init__(size, size, x, y, id)
+        self.size = self.width
 
     def __str__(self):
         return ("[Square] ({}) {}/{} - {}".format(self.id,
@@ -34,6 +35,7 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+        self.__size = value
 
     def update(self, *args, **kwargs):
         """ Update the Square """

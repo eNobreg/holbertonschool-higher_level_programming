@@ -20,13 +20,12 @@ class Square(Rectangle):
     @property
     def size(self):
         """ Getter for size """
-        return self.width
+        return self.__size
 
     @size.setter
     def size(self, value):
         """ Sizes """
-        self.width = value
-        self.height = vaule
+        self.__size = value
 
     def update(self, *args, **kwargs):
         """ Update the Square """

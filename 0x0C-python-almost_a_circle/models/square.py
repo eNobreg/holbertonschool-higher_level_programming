@@ -56,7 +56,7 @@ class Square(Rectangle):
     def to_dictionary(self):
         """ To dictionary
         new = {}
-        
+
         atts = ["id", "size", "x", "y"]
         for k, v in self.__dict__.items():
             key = k.partition('__')

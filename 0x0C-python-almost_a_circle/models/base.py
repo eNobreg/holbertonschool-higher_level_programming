@@ -4,6 +4,8 @@
 import turtle
 from os.path import exists
 import json
+
+
 class Base:
     """ Base Class for almost a circle """
     __nb_objects = 0
@@ -12,30 +14,30 @@ class Base:
         """ Instantaiation Constructor method """
         if id is not None:
             self.id = id
-        else:
+        elif not id:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """ Convert
         if list_dictionaries is None or len(list_dictionaries) == 0:
-            return '"[]"' 
+            return '"[]"'
         """
         ld = list_dictionaries
         return (json.dumps("[]") if ld is None or not ld else json.dumps(ld))
-    
+
     @classmethod
-    def save_to_file(cls, list_objs): 
+    def save_to_file(cls, list_objs):
         """ Save to a file"""
         if list_objs is None:
             list_objs = []
-        new = [] 
+        new = []
         for entry in list_objs:
             new.append(entry.to_dictionary())
         with open(cls.__name__ + '.json', 'w') as f:
             f.write(cls.to_json_string(new))
-    
+
     @staticmethod
     def from_json_string(json_string):
         """ This

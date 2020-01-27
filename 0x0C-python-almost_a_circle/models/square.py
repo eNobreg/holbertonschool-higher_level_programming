@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """ Module for a square """
 
+
 from models.base import Base
 from models.rectangle import Rectangle
+
+
 class Square(Rectangle):
     """ Square """
     def __init__(self, size, x=0, y=0, id=None):
@@ -11,7 +14,8 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width))
+        return ("[Square] ({}) {}/{} - {}".format(self.id,
+                                                  self.x, self.y, self.width))
 
     @property
     def size(self):
@@ -29,19 +33,19 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """ Update the Square """
-        if  len(args) > 0:
+        if len(args) > 0:
             try:
-                self.id = args[0] 
+                self.id = args[0]
                 self.size = args[1]
                 self.x = args[2]
                 self.y = args[3]
             except:
                 pass
         else:
-           self.id = kwargs.get('id', self.id)
-           self.size = kwargs.get('size', self.size)
-           self.x = kwargs.get('x', self.x)
-           self.y = kwargs.get('y', self.y)
+            self.id = kwargs.get('id', self.id)
+            self.size = kwargs.get('size', self.size)
+            self.x = kwargs.get('x', self.x)
+            self.y = kwargs.get('y', self.y)
 
     def to_dictionary(self):
         """ To dictionary """

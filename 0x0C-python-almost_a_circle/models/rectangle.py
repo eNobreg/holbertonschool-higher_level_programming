@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """ Module file """
 
+
 from models.base import Base
+
+
 class Rectangle(Base):
     """ Recetangle Class for Almost a circle """
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -81,14 +84,14 @@ class Rectangle(Base):
 
     def __str__(self):
         """ Override str method """
-        h = ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, 
+        h = ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                      self.width, self.height))
         return h
 
-    def update(self, *args, **kwargs): 
+    def update(self, *args, **kwargs):
         """ Update Arguments """
         if len(args) > 0:
-            try: 
+            try:
                 super().__init__(args[0])
                 self.width = args[1]
                 self.height = args[2]
@@ -96,7 +99,7 @@ class Rectangle(Base):
                 self.y = args[4]
             except:
                 pass
-        else: 
+        else:
             super().__init__(kwargs.get('id', self.id))
             self.height = kwargs.get('height', self.height)
             self.width = kwargs.get('width', self.width)

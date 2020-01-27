@@ -11,7 +11,6 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """ This and That """
         super().__init__(size, size, x, y, id)
-        self.size = self.width
 
     def __str__(self):
         return ("[Square] ({}) {}/{} - {}".format(self.id,
@@ -35,7 +34,6 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
-        self.__size = value
 
     def update(self, *args, **kwargs):
         """ Update the Square """
@@ -56,8 +54,9 @@ class Square(Rectangle):
             self.y = kwargs.get('y', self.y)
 
     def to_dictionary(self):
-        """ To dictionary """
+        """ To dictionary
         new = {}
+        
         atts = ["id", "size", "x", "y"]
         for k, v in self.__dict__.items():
             key = k.partition('__')
@@ -65,4 +64,9 @@ class Square(Rectangle):
                 new[key[2]] = v
             if k in atts:
                 new[k] = v
+        """
+        new = {"id": None, "size": None, "x": None, "y": None}
+        for k, v in new.items():
+            entry = getattr(self, k)
+            new.update({k: entry})
         return new

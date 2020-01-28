@@ -15,7 +15,7 @@ class r_t(unittest.TestCase):
 
     def setUp(self):
         """ Setup """
-        r3 = Rectangle(9, 9)
+        Base._Base__nb_objects = 0 
 
     def test_inheritance(self):
         self.assertTrue(issubclass(Rectangle, Base))
@@ -95,3 +95,42 @@ class r_t(unittest.TestCase):
             r1 = Rectangle(1, 1, None, "a") 
         with self.assertRaises(TypeError):
             r1 = Rectangle(1, 1, 1, None)
+
+    def test_str(self):
+        r1 = Rectangle(1, 1)
+        self.assertEqual(str(r1), "[Rectangle] (1) 0/0 - 1/1")
+
+    def test_update(self):
+        s1 = Rectangle(1, 1)
+        s1.update(45, 1, 4, 4, 1)
+        self.assertEqual(str(s1), "[Rectangle] (45) 4/1 - 1/4")
+
+    def test_update_2(self):
+        s1 = Rectangle(1, 1, 1, 1, 1)
+        s1.update(1, 1, 4, 4, 4)
+        self.assertEqual(str(s1), "[Rectangle] (1) 4/4 - 1/4")
+
+    def test_update_3(self):
+        s1 = Rectangle(1, 1, 1, 1, 1)
+        s1.update(id="360")
+        self.assertEqual(str(s1), "[Rectangle] (360) 1/1 - 1/1")
+        
+    def test_update_4(self):
+        s1 = Rectangle(1, 1, 1, 1, 1)
+        s1.update(id=500, wdith=400, height=500, x=5, y=5)
+        self.assertEqual(str(s1), "[Rectangle] (500) 5/5 - 1/500")
+        
+    def test_update_5(self):
+        s1 = Rectangle(1, 1, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            s1.update(id=500, width="500", height=400, x=5, y=5)
+        
+    def test_update_6(self):
+        s1 = Rectangle(1, 1, 1, 1, 1)
+        s1.update(1, 1, 1, 1, id=500, width=400, height=400, x=5, y=5)
+        self.assertEqual(str(s1), "[Rectangle] (1) 1/1 - 1/1")
+
+    def test_update_7(self):
+        s1 = Rectangle(1, 1, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            s1.update(width="hosue")

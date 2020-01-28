@@ -4,21 +4,19 @@
 import os
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 from models.square import Square
 
 
 class r_t(unittest.TestCase):
     """ Test Cases """
-    r1 = Square(5, 5)
-    r2 = Square(3, 3)
-    r3 = Square(9, 9)
 
     def setUp(self):
         """ Setup """
-        r3 = Square(9, 9)
+        Base._Base__nb_objects = 0
 
     def test_inheritance(self):
-        self.assertTrue(issubclass(Square, Base))
+        self.assertTrue(issubclass(Square, Rectangle))
 
     def test_area(self):
         """ tests """
@@ -80,8 +78,47 @@ class r_t(unittest.TestCase):
 
     def test_empties(self):
         with self.assertRaises(TypeError):
-            r1 = Square(None, "a", "a") 
+            r1 = Square(None,"a", "a") 
         with self.assertRaises(TypeError):
             r1 = Square(1, None, "a") 
         with self.assertRaises(TypeError):
             r1 = Square(1, 1, None) 
+
+    def test_str(self):
+        r1 = Square(1)
+        self.assertEqual(str(r1), "[Square] (1) 0/0 - 1")
+
+    def test_update(self):
+        s1 = Square(1)
+        s1.update(45, 1, 4, 4)
+        self.assertEqual(str(s1), "[Square] (45) 4/4 - 1")
+
+    def test_update_2(self):
+        s1 = Square(1, 1, 1, 1)
+        s1.update(1, 1, 4, 4)
+        self.assertEqual(str(s1), "[Square] (1) 4/4 - 1")
+
+    def test_update_3(self):
+        s1 = Square(1, 1, 1, 1)
+        s1.update(id="360")
+        self.assertEqual(str(s1), "[Square] (360) 1/1 - 1")
+        
+    def test_update_4(self):
+        s1 = Square(1, 1, 1, 1)
+        s1.update(id=500, size=400, x=5, y=5)
+        self.assertEqual(str(s1), "[Square] (500) 5/5 - 400")
+        
+    def test_update_5(self):
+        s1 = Square(1, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            s1.update(id=500, size="500", x=5, y=5)
+        
+    def test_update_6(self):
+        s1 = Square(1, 1, 1, 1)
+        s1.update(1, 1, 1, 1, id=500, size=400, x=5, y=5)
+        self.assertEqual(str(s1), "[Square] (1) 1/1 - 1")
+
+    def test_update_7(self):
+        s1 = Square(1, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            s1.update(size="hosue")

@@ -71,7 +71,16 @@ class Base:
     def draw(list_rectangles, list_squares):
         """ Draw a turtle """
         wn = turtle.Screen()
+        wn.title("Turtle")
         t = turtle.Turtle()
-        for c in range(0, 4):
-            t.forward(75)
-            t.left(90)
+        for cls in list_rectangles + list_squares:
+            t.up()
+            t.setpos(cls.x, cls.y)
+            t.down()
+            t.forward(cls.width)
+            t.right(90)
+            t.forward(cls.height)
+            t.right(90)
+            t.forward(cls.width)
+            t.right(90)
+            t.forward(cls.height)

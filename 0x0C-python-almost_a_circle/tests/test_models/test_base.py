@@ -70,6 +70,31 @@ class TestBase(unittest.TestCase):
         a0 = Base()
         self.assertTrue('_Base__nb_objects' in Base.__dict__)
 
+    def test_rectangle(self):
+        with self.assertRaises(TypeError):
+            a0 = Rectangle(1, "2")
+
+    def test_rectangle_2(self):
+        with self.assertRaises(TypeError):
+            a0 = Rectangle(1, 2, "3")
+
+    def test_rectangle_3(self):
+        with self.assertRaises(ValueError):
+            a0 = Rectangle(-1, 2)
+
+    def test_rectangle_4(self):
+        with self.assertRaises(ValueError):
+            a0 = Rectangle(1, -2)
+
+    def test_rectangle_6(self):
+        with self.assertRaises(ValueError):
+            a0 = Rectangle(1, 2, -3)
+
+    def test_rectangle_5(self):
+            a0 = Rectangle(1, 2, 3, 4, 5)
+            self.assertEqual(str(a0), "[Rectangle] (5) 3/4 - 1/2")
+
+
 class Test_base_json(unittest.TestCase):
     """ Test Cases """
 
@@ -107,6 +132,14 @@ class Test_base_json(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.a0.to_json_string()
 
+    def test_display(self):
+        a0 = Rectangle(1, 1)
+        self.assertEqual(a0.display(), None)
+
+    def test_display(self):
+        a0 = Rectangle(1, 1, 1)
+        self.assertEqual(a0.display(), None)
+
 class test_files_json(unittest.TestCase):
     """ Test Cases for files """
 
@@ -124,4 +157,3 @@ class test_files_json(unittest.TestCase):
     def test_rec_save(self):
         Rectangle.save_to_file([self.a1, self.a0])
         self.assertTrue(os.path.exists('Rectangle.json'))
-

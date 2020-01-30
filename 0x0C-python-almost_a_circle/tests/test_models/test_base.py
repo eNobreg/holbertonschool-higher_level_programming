@@ -94,6 +94,10 @@ class TestBase(unittest.TestCase):
             a0 = Rectangle(1, 2, 3, 4, 5)
             self.assertEqual(str(a0), "[Rectangle] (5) 3/4 - 1/2")
 
+    def test_to_dictionary(self):
+        a0 = Rectangle(1, 1)
+        string = a0.to_dictionary()
+        self.assertEqual(string, {'id': 1, 'width': 1, 'height': 1, 'x': 0, 'y': 0})
 
 class Test_base_json(unittest.TestCase):
     """ Test Cases """
@@ -157,3 +161,24 @@ class test_files_json(unittest.TestCase):
     def test_rec_save(self):
         Rectangle.save_to_file([self.a1, self.a0])
         self.assertTrue(os.path.exists('Rectangle.json'))
+
+    def test_create(self):
+        a0 = Rectangle.create(**{ 'id': 89 })
+        self.assertEqual(str(a0), "[Rectangle] (89) 0/0 - 5/5")
+
+
+    def test_create_2(self):
+        a0 = Rectangle.create(**{ 'id': 89, 'width': 1 }) 
+        self.assertEqual(str(a0), "[Rectangle] (89) 0/0 - 1/5")
+
+    def test_create_3(self):
+        a0 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+        self.assertEqual(str(a0), "[Rectangle] (89) 0/0 - 1/2")
+
+    def test_create_4(self):
+        a0 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        self.assertEqual(str(a0), "[Rectangle] (89) 3/0 - 1/2")
+
+    def test_create_5(self):
+        a0 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+        self.assertEqual(str(a0), "[Rectangle] (89) 3/4 - 1/2")

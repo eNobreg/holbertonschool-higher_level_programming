@@ -1,5 +1,5 @@
 -- Joins are terrible
-SELECT tv_genres.name, COUNT(*)
+SELECT tv_genres.name AS genre, COUNT(*)
 AS number_of_shows
 FROM tv_genres 
 JOIN tv_show_genres 

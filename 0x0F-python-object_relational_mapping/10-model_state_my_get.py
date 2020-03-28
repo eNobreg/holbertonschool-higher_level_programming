@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     states = session.query(State).filter(State.name == sys.argv[4])\
                     .order_by(State.id).all()
-    if (not states):
+    if (len(states) == 0):
         print('Not Found')
     else:
         for state in states:

@@ -11,6 +11,7 @@ if __name__ == "__main__":
                             ORDER BY states.id;".format(argv[4]))
     for i in range(0, execute):
         entry = cursor.fetchone()
-        print(entry)
+        if entry[1] == argv[4]:
+            print(entry)
     cursor.close()
     connection.close()

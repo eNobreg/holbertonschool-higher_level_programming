@@ -9,8 +9,8 @@ if __name__ == "__main__":
                              ON cities.state_id = states.id\
                              WHERE states.name=%(s_name)s ORDER BY cities.id\
                              ", {'s_name': argv[4]})
+    entry = cursor.fetchall()
     for i in range(0, execute):
-        entry = cursor.fetchone()
-        print(entry[0], end=", " if i < execute - 1 else "\n")
+        print(entry[i][0], end=", " if i < execute - 1 else "\n")
     cursor.close()
     connection.close()

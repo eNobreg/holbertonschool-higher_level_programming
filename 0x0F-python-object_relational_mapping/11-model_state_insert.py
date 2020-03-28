@@ -18,4 +18,5 @@ if __name__ == "__main__":
     for state in states:
         print("%i" % state.id)
 
+    session.commit()
     session.close()

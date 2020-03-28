@@ -11,6 +11,7 @@ if __name__ == "__main__":
                              ", {'s_name': argv[4]})
     for i in range(0, execute):
         entry = cursor.fetchone()
-        print(entry[0], end=", " if i < execute - 1 else "\n")
+        if (entry):
+            print(entry[0], end=", " if i < execute - 1 else "\n")
     cursor.close()
     connection.close()

@@ -7,7 +7,7 @@ if __name__ == "__main__":
     cursor = connection.cursor()
     execute = cursor.execute("SELECT cities.name FROM cities JOIN states\
                              ON cities.state_id = states.id\
-                             WHERE states.name=%(s_name)s ORDER BY states.id\
+                             WHERE states.name=%(s_name)s ORDER BY cities.id\
                              ", {'s_name': argv[4]})
     for i in range(0, execute):
         entry = cursor.fetchone()

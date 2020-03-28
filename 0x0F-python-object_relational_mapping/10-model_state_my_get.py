@@ -12,8 +12,8 @@ if __name__ == "__main__":
     Session = sessionmaker(engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id)\
-                    .filter(State.name == sys.argv[4]).all()
+    states = session.query(State).filter(State.name == sys.argv[4])\
+                    .order_by(State.id).all()
     if (not states):
         print('Not Found')
     else:

@@ -14,7 +14,9 @@ if __name__ == "__main__":
 
     states = session.query(State).order_by(State.id)\
                     .filter(State.name == sys.argv[4]).all()
-    for state in states:
-        print("%i" % (state.id,))
-
+    if (not states):
+        print('Not Found')
+    else:
+        for state in states:
+            print("%i" % (state.id,))
     session.close()

@@ -22,5 +22,5 @@ def find_peak(ln):
     for i in range(1, length):
         if ln[i] > ln[i + 1] and ln[i] > ln[i - 1]:
             return(ln[i])
-    
+
     return None

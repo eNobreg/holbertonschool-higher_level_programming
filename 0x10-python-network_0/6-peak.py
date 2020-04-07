@@ -19,8 +19,13 @@ def find_peak(ln):
     if ln[length] > ln[length - 1]:
         return ln[length]
 
-    for i in range(1, length):
+    return (rec_check(ln, length // 2, length))
+def rec_check(ln, start, end):
+    """
+    Recursive function to check"
+    """
+    for i in range(start, end):
         if ln[i] > ln[i + 1] and ln[i] > ln[i - 1]:
             return(ln[i])
+    rec_check(1, start - 1)
 
-    return None

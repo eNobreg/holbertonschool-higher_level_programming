@@ -1,3 +1,3 @@
 #!/bin/bash
 # Comment
-curl -sXPOST -H "Content-Tye: application/json" -d @$2 $1
+curl -sX POST -H "Content-Tye: application/json" -d @$2 $1

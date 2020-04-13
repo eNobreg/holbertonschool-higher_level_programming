@@ -8,8 +8,8 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-    try:
-        r = requests.get(argv[1])
-        print(r.text)
-    except requests.exceptions.HTTPError:
+    r = requests.get(argv[1])
+    if r.status_code >= 400:
         print("Error code: {}".format(r.status_code))
+    else:
+        print(r.text)

@@ -3,7 +3,6 @@
 Docstrig
 """
 
-from urllib import parse
 from urllib import request
 from sys import argv
 

@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     url = "https://api.github.com/user"
     user = argv[1]
-    password = argv[2]
-    
-    r = requests.post(url, headers={'Authorization': 'token {}'.format(password)})
+    pwd = argv[2]
+
+    r = requests.get(url, headers={'Authorization': 'token {}'.format(pwd)})
     print(r.json().get('id'))

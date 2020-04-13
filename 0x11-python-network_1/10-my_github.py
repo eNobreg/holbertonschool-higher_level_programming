@@ -13,4 +13,4 @@ if __name__ == "__main__":
     pwd = argv[2]
 
     r = requests.get(url, headers={'Authorization': 'token {}'.format(pwd)})
-    print(r.json().get('id'))
+    print(r.json()['id'])

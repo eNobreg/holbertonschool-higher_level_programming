@@ -13,4 +13,7 @@ if __name__ == "__main__":
     pwd = argv[2]
 
     r = requests.get(url, headers={'Authorization': 'token {}'.format(pwd)})
-    print(r.json()['id'])
+    try:
+        print(r.json()['id'])
+    except KeyError:
+        print("None")

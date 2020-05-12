@@ -7,7 +7,7 @@ const url = args[0];
 request(url, function (err, res, body) {
   if (err) {
     console.log(err);
-  } else {
+  } else if (res.statusCode === 200) {
     let total = 0;
     const json = JSON.parse(body).results;
     for (const entry of json) {

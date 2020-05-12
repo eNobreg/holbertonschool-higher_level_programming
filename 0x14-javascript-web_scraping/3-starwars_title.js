@@ -11,7 +11,5 @@ request(options, function (err, res, body) {
   } else if (res.statusCode === 200) {
     const json = JSON.parse(body);
     console.log(json.title);
-  } else {
-    console.log("404 NOT FOUND");
   }
 });

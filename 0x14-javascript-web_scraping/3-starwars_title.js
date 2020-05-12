@@ -8,7 +8,7 @@ const options = {
 request(options, function (err, res, body) {
   if (err) {
     console.log(err);
-  } else {
+  } else if (res.statusCode === 200) {
     const json = JSON.parse(body);
     console.log(json.title);
   }

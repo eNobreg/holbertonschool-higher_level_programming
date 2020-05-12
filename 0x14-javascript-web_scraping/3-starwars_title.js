@@ -8,7 +8,7 @@ const options = {
 };
 
 request(options, function (err, res, body) {
-  if (body) {
+  if (err) {
     console.log(err);
   } else {
     const json = JSON.parse(body);

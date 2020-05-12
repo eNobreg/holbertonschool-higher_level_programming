@@ -4,7 +4,6 @@ const args = process.argv.slice(2);
 
 const options = {
   url: 'https://swapi-api.hbtn.io/api/films/' + args[0],
-  method: 'GET'
 };
 
 request(options, function (err, res, body) {

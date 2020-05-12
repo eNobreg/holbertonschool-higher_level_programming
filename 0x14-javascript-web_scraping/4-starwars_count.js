@@ -12,7 +12,7 @@ request(url, function (err, res, body) {
   let total = 0;
   const json = JSON.parse(body).results;
   for (const entry of json) {
-    for (charUrl in entry.characters) {
+    for (const charUrl in entry.characters) {
       if (charUrl.includes('18')) {
         total += 1;
       }

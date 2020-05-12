@@ -5,7 +5,6 @@ const args = process.argv.slice(2);
 
 const url = args[0];
 request(url, function (err, res, body) {
-  
   if (err) {
     console.log(err);
   }
@@ -14,7 +13,7 @@ request(url, function (err, res, body) {
   for (const entry of json) {
     for (const charUrl in entry.characters) {
       if (charUrl.includes('18')) {
-        total += 1;
+        total++;
       }
     }
   }

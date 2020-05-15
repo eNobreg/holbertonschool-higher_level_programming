@@ -1,2 +1,2 @@
 #!/usr/bin/node
-$('#red_header').click(function () { $(this).css('color', 'red'); });
+$('#red_header').click(function () { $('header').css('color', 'red'); });
